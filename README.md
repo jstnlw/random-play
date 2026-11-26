@@ -1,16 +1,8 @@
-# Random Play: Video Store Tycoon
-
-**Game Design Document**
-**Status:** Concept and preproduction only. No game project has been built.
-**Version:** 0.2 (26 November 2026)
-
 ## 1. Overview
 
 A noncommercial fan game set in the world of **Zenless Zone Zero**, centered on **Wise and Belle** managing **Random Play**, their video rental store on **Sixth Street, New Eridu**.
 
 The primary experience is a relaxed, menu-driven **idle business tycoon**. Players manage rentals, recommendations, memberships, customer relationships, inventory, staff, and upgrades. A secondary **Proxy** system lets players accept commissions and guide agents through Hollow investigations using automated expeditions and occasional decisions.
-
-**Distribution:** Internal circulation only; not intended for commercial sale. This is an unofficial fan project, not affiliated with or endorsed by the rights holders. Internal-only distribution does not itself grant rights to copyrighted assets or characters; review permissions before sharing.
 
 ## 2. Creative Pillars
 
@@ -92,19 +84,161 @@ The primary experience is a relaxed, menu-driven **idle business tycoon**. Playe
 - Recurring citizens have preferences, membership status, rental history, and relationship progression.
 - Relationships unlock dialogue, personal requests, referrals, and events.
 
-**VIP agents**
+## VIP Agents
 
-- VIPs are the obtainable banner characters from Zenless Zone Zero, appearing as special visitors to Random Play.
-- Each VIP has an individual relationship meter from **0% to 100%**.
-- VIP relationships increase through store visits and by accepting and completing **randomized quests and requests** from that VIP.
-- Requests can vary in objective, difficulty, and reward, providing repeatable reasons to interact with each character.
-- At **100% relationship**, the VIP becomes **recruitable for Proxy Hollow missions**.
-- Recruitment unlocks the agent for selection in the Proxy expedition roster; it does not turn the game into direct combat.
-- Relationship progress and recruitment status persist in save data.
+VIPs are obtainable banner characters from Zenless Zone Zero who occasionally visit Random Play. Players can build relationships with these characters through store interactions and randomized requests.
 
-**Proposed interaction loop:** VIP visits -> player interacts or accepts a randomized request -> completes the request -> gains relationship progress -> reaches 100% -> unlocks the VIP for Hollow missions.
+Reaching **100% relationship unlocks the VIP as a recruitable agent for Proxy Hollow missions**.
 
-**To determine during balancing:** Starting relationship values, points per request, whether visits alone grant points, request cooldowns, failed or expired request penalties, and whether recruited agents require any additional mission costs. Recruitment at 100% is the confirmed rule.
+### Relationship Progression
+
+Each VIP has an individual relationship meter ranging from **0% to 100%**.
+
+| Activity | Relationship Gain |
+|---|---|
+| Initial relationship | 0% |
+| Casual store interaction | +1% |
+| Small request | +3% |
+| Standard quest | +5% |
+| Special quest | +10% |
+| Maximum relationship | 100% |
+
+Relationship progress is permanent and does not decay.
+
+### VIP Visits
+
+VIP appearances follow a combination of scheduled preferences and randomized visits.
+
+- Each VIP has preferred visiting days or times.
+- Higher relationship levels slightly increase visit frequency.
+- VIPs who have not appeared for several days receive an increased chance of visiting.
+- Active quests may trigger guaranteed appearances.
+- Each VIP can offer one new request per in-game day.
+
+This ensures players have regular opportunities to build relationships without relying entirely on random appearances.
+
+### Randomized Quests and Requests
+
+VIPs occasionally offer randomized requests based on their personalities and preferences.
+
+| Request Type | Example | Relationship Reward |
+|---|---|---|
+| Small | Recommend a movie matching their preferred genre | +3% |
+| Standard | Reserve several specific movie tapes | +5% |
+| Special | Acquire a rare movie for the VIP | +10% |
+
+**Request rules:**
+
+- Requests vary in objectives, difficulty, and rewards.
+- Request generation considers each VIP's personality and preferences.
+- Failed or expired requests do not reduce relationships.
+- Players simply miss the relationship reward.
+- Requests can reappear in future visits.
+- Completed requests may also reward Dennies, items, or materials.
+
+### Relationship Milestones
+
+Relationship progression unlocks additional interactions and benefits.
+
+| Relationship | Unlock |
+|---|---|
+| 0% | First encounter |
+| 25% | Additional character dialogue |
+| 50% | Character-specific requests |
+| 75% | Special relationship event |
+| 100% | Permanent recruitment for Hollow missions |
+
+Milestones provide meaningful progression before reaching maximum relationship.
+
+### VIP Recruitment
+
+Upon reaching **100% relationship**, the VIP becomes available for recruitment into Proxy Hollow missions.
+
+**Recruitment rules:**
+
+- Recruitment is free.
+- Recruited agents are permanently unlocked.
+- Agents become selectable in the Proxy expedition roster.
+- Agents can participate in one expedition at a time.
+- Completed expeditions trigger a short recovery period.
+- Investigation upgrades can reduce recovery time.
+- Relationships remain at 100% after recruitment.
+- Recruitment does not introduce direct character control or combat.
+
+Relationship progress and recruitment status are preserved in save data.
+
+### Post-Recruitment Activities
+
+Recruited VIPs continue visiting Random Play and interacting with the player.
+
+Once their relationship reaches 100%:
+
+- Randomized requests remain available.
+- Requests reward Dennies, materials, or exclusive tapes instead of relationship points.
+- Special character interactions remain accessible.
+- VIPs may unlock additional store events.
+
+### VIP Loyalty Bonuses
+
+Each recruited VIP may provide a small passive bonus to Random Play.
+
+Possible bonuses include:
+
+- Increased popularity for specific movie genres.
+- Higher customer visit frequency.
+- Improved customer satisfaction.
+- Increased chances of discovering rare tapes.
+- Additional rewards from movie recommendations.
+
+Bonuses should reflect each character's personality and remain relatively small to avoid making VIP recruitment mandatory for business success.
+
+### Progression Balancing
+
+The relationship system should reward consistent interaction without excessive grinding.
+
+**Recommended targets:**
+
+| Mechanic | Recommendation |
+|---|---|
+| Starting relationship | 0% |
+| Casual interaction | +1% |
+| Small request | +3% |
+| Standard quest | +5% |
+| Special quest | +10% |
+| First VIP recruitment | Approximately 10 to 15 in-game days |
+| Typical recruitment | Approximately 15 to 20 meaningful interactions |
+| Request cooldown | One in-game day per VIP |
+| Relationship decay | None |
+| Failed request penalty | None |
+| Expired request penalty | None |
+| Recruitment cost | Free |
+
+These values are initial balancing targets and may be adjusted during playtesting.
+
+### Gameplay Interaction Loop
+
+1. VIP visits Random Play.
+2. Player interacts with the VIP.
+3. VIP offers a randomized quest or request.
+4. Player accepts and completes the objective.
+5. Relationship percentage increases.
+6. Relationship milestones unlock additional interactions.
+7. At 100%, the VIP becomes recruitable.
+8. Recruited VIP becomes available for Hollow expeditions.
+9. Future visits and requests provide additional rewards.
+
+### Design Principles
+
+1. **Permanent progression:** Relationships never decrease.
+2. **Relaxed gameplay:** Missing requests does not punish players.
+3. **Predictable opportunities:** Random visits should not prevent progression indefinitely.
+4. **Character identity:** Requests should reflect individual VIP personalities.
+5. **Meaningful milestones:** Players receive rewards throughout relationship progression.
+6. **Permanent recruitment:** Agents remain unlocked after reaching 100%.
+7. **Continued interaction:** Recruited VIPs remain relevant to store management.
+8. **Balanced rewards:** VIP bonuses enhance the business without becoming mandatory.
+
+**Core objective:** Build relationships with familiar characters through everyday interactions at Random Play, eventually earning their trust and unlocking their assistance in Hollow investigations.
 
 ### 6.5 Bangboo Staff
 
@@ -191,56 +325,3 @@ These are **accepted starting specifications**, subject to adjustment during pro
 **Proxy path:** Accept commissions -> Earn materials -> Upgrade investigation systems -> Unlock harder missions and agent-related events.
 
 The paths may intersect, but the player should be able to enjoy the game while focusing primarily on the store.
-
-## 11. Proposed Development Milestones
-
-| Version | Scope |
-|---|---|
-| 0.1 | Main store view, idle customer simulation, rentals, income, daily cycle, basic HUD |
-| 0.2 | Movie inventory, purchasing, collections |
-| 0.3 | Customer preferences and recommendations |
-| 0.4 | Memberships, VIP relationships, randomized requests, and 100% recruitment unlock |
-| 0.5 | Bangboo staffing and automation |
-| 0.6 | Store upgrades and grid-based customization |
-| 0.7 | Proxy commissions and automated expeditions |
-| 0.8 | VIP agents, special events, Hollow upgrades |
-| 0.9 | Pixel art polish, animation, audio, balancing, saves |
-| 1.0 | Testing, optimization, browser and PC release preparation |
-
-Milestones are provisional, not release commitments. Basic save support may need to be implemented earlier than 0.9 to support testing.
-
-## 12. Development Workflow (When Authorized)
-
-1. Finalize screen layout and core interaction flows.
-2. Generate a Godot project with `project.godot`, `.tscn` scenes, `.gd` scripts, resources, data, and placeholder assets.
-3. Package the project as a ZIP that can be imported into Godot.
-4. Run available automated or headless checks; manually test interactions in the Godot editor and browser.
-5. Iterate in small versions, preferably tracked in Git.
-6. Replace placeholder graphics with consistent original pixel art.
-7. Export and test HTML5 and Windows builds.
-
-**Current instruction:** Do not build or generate the Godot project yet. This document records design decisions only.
-
-## 13. Open Design Questions
-
-- Exact main screen composition and panel behavior.
-- Whether the store is a fixed recognizable Random Play interior, freely expandable, or a hybrid of both.
-- Customer arrival rates, rental durations, income, expenses, and balancing.
-- Whether membership tiers match the proposed four-tier model.
-- VIP banner-character roster and availability rules, dialogue scope, randomized request pool, relationship gain rates, and event unlock rules.
-- Proxy expedition decision frequency and failure consequences.
-- Save format and browser persistence strategy.
-- How much simulation continues while menus are open.
-- Whether offline idle progress is desirable.
-- Final pixel art palette, animation frame counts, and UI scaling rules.
-
-## 14. Confirmed Scope Boundaries
-
-- Noncommercial, internal-only fan project.
-- No direct player control of Wise or Belle.
-- Menu-first, Kairosoft-inspired management gameplay.
-- Eastward-inspired pixel art fidelity rather than Kairosoft-style graphics.
-- Store management is primary; Proxy missions are secondary.
-- VIP banner characters become recruitable for Hollow missions only after reaching 100% relationship through visits and randomized requests.
-- HTML5 compatibility is a core technical requirement.
-- **No implementation work should begin until explicitly requested.**
